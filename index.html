@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MiPass</title>
+
+<style>
+:root{
+    --mi-blue:#00274C;
+    --border:#d6dbe1;
+    --bg:#f3f6fa;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI", Arial, sans-serif;
+}
+
+body{
+    background:var(--bg);
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+/* GRID BACKGROUND */
+body::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      linear-gradient(to right, rgba(0,0,0,0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0,0,0,0.03) 1px, transparent 1px);
+    background-size:48px 48px;
+}
+
+/* CARD */
+.card{
+    width:400px;
+    background:white;
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:34px;
+    position:relative;
+    z-index:1;
+    box-shadow:0 18px 45px rgba(0,0,0,0.06);
+}
+
+/* LOGO */
+.logo{
+    display:flex;
+    justify-content:center;
+    margin-bottom:12px;
+}
+
+.logo-box{
+    width:38px;
+    height:38px;
+    background:var(--mi-blue);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:800;
+    transform:skew(-12deg);
+    border-radius:4px;
+}
+
+.logo-box span{
+    transform:skew(12deg);
+}
+
+/* TITLE */
+h1{
+    text-align:center;
+    color:var(--mi-blue);
+    font-size:26px;
+    font-weight:800;
+    transform:skew(-5deg);
+}
+
+.sub{
+    text-align:center;
+    font-size:12px;
+    color:#6b7280;
+    margin-top:6px;
+}
+
+/* SECTION BOX */
+.section{
+    margin-top:18px;
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:16px;
+}
+
+/* BUTTONS */
+button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:6px;
+    font-size:14px;
+    font-weight:600;
+    cursor:pointer;
+    margin-top:10px;
+}
+
+.roblox{
+    background:#111827;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+}
+
+.roblox-icon{
+    width:16px;
+    height:16px;
+    background:white;
+    transform:rotate(45deg);
+}
+
+.primary{
+    background:var(--mi-blue);
+    color:white;
+}
+
+/* DIVIDER */
+.divider{
+    text-align:center;
+    font-size:11px;
+    color:#6b7280;
+    margin:14px 0;
+}
+
+/* NOTE */
+.notice{
+    margin-top:16px;
+    font-size:11px;
+    background:#eef4ff;
+    border-left:4px solid var(--mi-blue);
+    padding:10px;
+    color:#1f2937;
+    line-height:1.4;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <div class="logo">
+        <div class="logo-box"><span>MI</span></div>
+    </div>
+
+    <h1>MiPass</h1>
+    <div class="sub">State Identity Authentication System</div>
+
+    <div class="section">
+        <div style="font-size:13px;font-weight:600;color:#111827;">
+            Existing Users
+        </div>
+
+        <div style="font-size:11px;color:#6b7280;margin-top:4px;">
+            Sign in using your linked Roblox identity
+        </div>
+
+        <button class="roblox">
+            <div class="roblox-icon"></div>
+            Continue with Roblox
+        </button>
+    </div>
+
+    <div class="divider">OR</div>
+
+    <div class="section">
+        <div style="font-size:13px;font-weight:600;color:#111827;">
+            New Users
+        </div>
+
+        <div style="font-size:11px;color:#6b7280;margin-top:4px;">
+            Create a MiPass account if you are not registered in the State Identity Registry
+        </div>
+
+        <button class="primary">
+            Create MiPass Account
+        </button>
+    </div>
+
+    <div class="notice">
+        🔒 Identity verification may be required during account creation.
+        All accounts are subject to state identity registration and audit logging.
+    </div>
+
+</div>
+
+</body>
+</html>
