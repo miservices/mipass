@@ -187,7 +187,7 @@ body::before {
 .step { display: none; }
 .step.active { display: block; }
 
-/* ROBLOX CONNECT */
+/* ROBLOX CONNECT — MiPASS STYLE */
 .roblox-connect-wrap {
   display: flex;
   flex-direction: column;
@@ -196,10 +196,6 @@ body::before {
   gap: 14px;
   padding: 10px 0 6px;
 }
-.roblox-icon-big { font-size: 2.4rem; }
-.roblox-connect-wrap h3 { font-size: 15px; font-weight: 800; color: var(--dark); }
-.roblox-connect-wrap p { font-size: 12.5px; color: var(--gray); line-height: 1.55; max-width: 380px; }
-
 button.roblox-btn {
   display: inline-flex;
   align-items: center;
@@ -226,19 +222,6 @@ button.roblox-btn:hover { background: #1f2937; transform: translateY(-1px); }
   flex-shrink: 0;
 }
 
-.perms-note {
-  display: flex;
-  gap: 16px;
-  background: #f8fafc;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  padding: 12px 16px;
-  text-align: left;
-  width: 100%;
-}
-.perm-item { display: flex; gap: 7px; flex: 1; font-size: 11.5px; color: var(--gray); line-height: 1.45; }
-.perm-item strong { display: block; color: var(--dark); font-size: 11.5px; margin-bottom: 1px; }
-
 /* STATES */
 .state-loading {
   display: none;
@@ -260,31 +243,10 @@ button.roblox-btn:hover { background: #1f2937; transform: translateY(-1px); }
 
 .state-connected {
   display: none;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  padding: 16px 0 8px;
-  text-align: center;
+  width: 100%;
+  padding: 8px 0;
 }
-.avatar-ring {
-  width: 60px; height: 60px;
-  border-radius: 50%;
-  background: var(--green-light);
-  border: 3px solid var(--green-border);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.6rem;
-}
-.verified-badge {
-  display: inline-flex; align-items: center; gap: 5px;
-  background: var(--green-light);
-  border: 1px solid var(--green-border);
-  border-radius: 20px;
-  padding: 4px 12px;
-  font-size: 11px; font-weight: 700; color: var(--green);
-}
-.connected-username { font-size: 17px; font-weight: 800; color: var(--dark); }
-.connected-sin { font-size: 12px; color: var(--gray); }
-.disconnect-link { font-size: 11.5px; color: var(--gray); cursor: pointer; text-decoration: underline; margin-top: 2px; }
+.disconnect-link { font-size: 11.5px; color: var(--gray); cursor: pointer; text-decoration: underline; }
 
 .state-error {
   display: none;
@@ -514,7 +476,122 @@ button.btn-retry {
 .next-steps li { font-size: 12px; color: var(--gray); line-height: 1.5; display: flex; align-items: flex-start; gap: 8px; }
 .next-steps li::before { content: '›'; color: var(--accent); font-weight: 800; flex-shrink: 0; }
 
-/* FOOTER NOTE */
+/* ROBLOX CONNECT — MiPASS STYLE */
+.rblx-pill-header {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: #111827;
+  color: #e5e7eb;
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+.rblx-pill-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #4ade80;
+  animation: pulse-dot 1.8s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
+.rblx-scope-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2px;
+}
+.rblx-scope-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  color: var(--gray);
+}
+.rblx-scope-yes { color: var(--green); font-weight: 800; }
+.rblx-scope-no  { color: #9ca3af; font-weight: 800; }
+.rblx-scope-sep { color: #d1d5db; font-size: 14px; }
+
+/* ROBLOX LINKED CARD */
+.rblx-linked-card {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f8fafc;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 9px;
+  padding: 14px 16px;
+  gap: 12px;
+}
+.rblx-linked-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.rblx-linked-icon {
+  width: 36px; height: 36px;
+  background: #111827;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.rblx-linked-info { display: flex; flex-direction: column; gap: 2px; }
+.rblx-linked-name { font-size: 14px; font-weight: 800; color: var(--dark); }
+.rblx-linked-sin  { font-size: 11px; color: var(--gray); font-family: monospace; }
+.rblx-linked-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  flex-shrink: 0;
+}
+.rblx-linked-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--green-light);
+  border: 1px solid var(--green-border);
+  border-radius: 12px;
+  padding: 3px 10px;
+  font-size: 10.5px;
+  font-weight: 800;
+  color: var(--green);
+}
+.rblx-linked-badge::before { content: '●'; font-size: 7px; }
+
+/* LOCKED FIELDS */
+.field input[readonly] {
+  background: #f4f6f9;
+  color: #374151;
+  cursor: not-allowed;
+  border-color: #e5e7eb;
+}
+.field input[readonly]:focus {
+  border-color: #e5e7eb;
+  box-shadow: none;
+}
+.locked-notice {
+  display: none;
+  margin-top: 8px;
+  font-size: 11px;
+  color: #6b7280;
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 8px 11px;
+  line-height: 1.5;
+}
+.locked-notice a { color: var(--mi-blue); font-weight: 700; }
+
 .footer-note {
   margin-top: 20px;
   font-size: 11px;
@@ -578,20 +655,21 @@ button.btn-retry {
 
     <!-- Connect -->
     <div id="stateConnect" class="roblox-connect-wrap">
-      <div class="roblox-icon-big">🎮</div>
-      <h3>Connect Your Roblox Account</h3>
-      <p>Click below to securely authorize with Roblox. You'll be redirected to Roblox and brought back here automatically.</p>
+      <div class="rblx-pill-header">
+        <div class="rblx-pill-dot"></div>
+        <span>Roblox Identity Verification</span>
+      </div>
+      <p style="font-size:12.5px;color:var(--gray);line-height:1.6;text-align:center;max-width:380px;">MiPass uses your Roblox account to verify your identity and retrieve your State Identification Number (SIN). No game data is ever accessed.</p>
       <button class="roblox-btn" onclick="connectRoblox()">
         <div class="rblx-icon-box"></div>
-        Continue with Roblox
+        Link Roblox Account
       </button>
-      <div class="perms-note">
-        <div class="perm-item">
-          <div><strong>✅ We request</strong>Your username and user ID only.</div>
-        </div>
-        <div class="perm-item">
-          <div><strong>🚫 We never access</strong>Your inventory, Robux, friends, or any account actions.</div>
-        </div>
+      <div class="rblx-scope-row">
+        <div class="rblx-scope-item"><span class="rblx-scope-yes">✓</span> Username &amp; User ID</div>
+        <div class="rblx-scope-sep">·</div>
+        <div class="rblx-scope-item"><span class="rblx-scope-no">✗</span> Robux or inventory</div>
+        <div class="rblx-scope-sep">·</div>
+        <div class="rblx-scope-item"><span class="rblx-scope-no">✗</span> Friends or activity</div>
       </div>
     </div>
 
@@ -603,11 +681,21 @@ button.btn-retry {
 
     <!-- Connected -->
     <div id="stateConnected" class="state-connected">
-      <div class="avatar-ring">🎮</div>
-      <div class="verified-badge">✅ Verified</div>
-      <div class="connected-username" id="connUsername"></div>
-      <div class="connected-sin" id="connSin"></div>
-      <span class="disconnect-link" onclick="doDisconnect()">Not you? Disconnect and try again</span>
+      <div class="rblx-linked-card">
+        <div class="rblx-linked-left">
+          <div class="rblx-linked-icon">
+            <div class="rblx-icon-box" style="width:18px;height:18px;background:#111827;"></div>
+          </div>
+          <div class="rblx-linked-info">
+            <div class="rblx-linked-name" id="connUsername"></div>
+            <div class="rblx-linked-sin" id="connSin"></div>
+          </div>
+        </div>
+        <div class="rblx-linked-right">
+          <div class="rblx-linked-badge">Linked</div>
+          <span class="disconnect-link" onclick="doDisconnect()">Remove</span>
+        </div>
+      </div>
     </div>
 
     <!-- Error -->
@@ -640,7 +728,7 @@ button.btn-retry {
     <!-- Info banner: already registered in registry -->
     <div class="alert success" id="alertRegistered">
       <div class="alert-title">✅ Found in State Registry</div>
-      Your identity was found in the State Registry. Your information has been pre-filled. Please review it below.
+      Your identity was found in the State Registry and has been pre-filled below. Fields are locked — if any information is incorrect, you'll need to update it through the <a href="https://miservices.github.io/sos/incorrect-details/" target="_blank" style="color:inherit;font-weight:700;text-decoration:underline;">Secretary of State website</a>.
     </div>
 
     <!-- Info banner: not in registry, must register -->
@@ -681,6 +769,10 @@ button.btn-retry {
         <input type="date" id="dob">
         <span class="err-msg">Date of birth is required.</span>
       </div>
+    </div>
+
+    <div class="locked-notice" id="lockedNotice">
+      🔒 Your information is locked because it was found in the State Registry. If anything is incorrect, please update it via the <a href="https://miservices.github.io/sos/incorrect-details/" target="_blank">Secretary of State website</a>.
     </div>
 
     <div class="alert error" id="step2Error"></div>
@@ -836,7 +928,7 @@ button.btn-retry {
 ══════════════════════════════════════════ -->
 <script>
 // ─── ROBLOX OAUTH CONFIG ───────────────────────────────────
-const ROBLOX_CLIENT_ID = '8551910480130990194';
+const ROBLOX_CLIENT_ID = '6125371219815664523';
 const REDIRECT_URI     = window.location.origin + '/mipass/create/';
 const WORKER_URL       = 'https://roblox-oauth.takosull0.workers.dev/';
 
@@ -1012,6 +1104,21 @@ async function afterRobloxAuth(userId, username) {
   }
 }
 
+// ─── FIELD LOCKING ────────────────────────────────────────
+function lockFields() {
+  ['firstName', 'middleName', 'lastName', 'dob'].forEach(id => {
+    document.getElementById(id).setAttribute('readonly', true);
+  });
+  document.getElementById('lockedNotice').style.display = 'block';
+}
+
+function unlockFields() {
+  ['firstName', 'middleName', 'lastName', 'dob'].forEach(id => {
+    document.getElementById(id).removeAttribute('readonly');
+  });
+  document.getElementById('lockedNotice').style.display = 'none';
+}
+
 // ─── STEP 2: LOAD REGISTRY DATA ───────────────────────────
 async function loadRegistryData(sin) {
   await waitFor('_sosReady', 'sosReady');
@@ -1034,10 +1141,12 @@ async function loadRegistryData(sin) {
       }
       showAlert('alertRegistered', true);
       showAlert('alertNotRegistered', false);
+      lockFields();
     } else {
       registeredInRegistry = false;
       showAlert('alertRegistered', false);
       showAlert('alertNotRegistered', true);
+      unlockFields();
     }
   } catch (err) {
     console.error('Registry lookup error:', err);
@@ -1045,6 +1154,7 @@ async function loadRegistryData(sin) {
     registeredInRegistry = false;
     showAlert('alertRegistered', false);
     showAlert('alertNotRegistered', true);
+    unlockFields();
   }
 }
 
@@ -1054,6 +1164,7 @@ async function enterStep2() {
   showAlert('alertRegistered', false);
   showAlert('alertNotRegistered', false);
   showAlert('step2Error', false);
+  unlockFields(); // reset before registry lookup
 
   // Load registry in background
   if (robloxData.id) {
