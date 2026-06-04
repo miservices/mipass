@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Create Account | MiPass</title>
+<title>Create Account | MiPASS</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -613,7 +613,7 @@ button.btn-retry {
 <body>
 
 <div class="back-bar">
-  <a class="back-link" href="/mipass/">← Back to MiPass</a>
+  <a class="back-link" href="/mipass/">← Back to MiPASS</a>
 </div>
 
 <div class="card">
@@ -621,7 +621,7 @@ button.btn-retry {
   <!-- LOGO -->
   <div class="logo">
     <div class="logo-box"><span>MI</span></div>
-    <div class="logo-title">MiPass</div>
+    <div class="logo-title">MiPASS</div>
   </div>
 
   <!-- PROGRESS -->
@@ -650,7 +650,7 @@ button.btn-retry {
   <div class="step active" id="step1">
     <div class="step-header">
       <h2>Step 1 — Verify Your Identity</h2>
-      <p>Connect your Roblox account to get started. Your Roblox User ID is your State Identification Number (SIN) and will be linked to your MiPass account.</p>
+      <p>Connect your Roblox account to get started. Your Roblox User ID is your State Identification Number (SIN) and will be linked to your MiPASS account.</p>
     </div>
 
     <!-- Connect -->
@@ -659,7 +659,7 @@ button.btn-retry {
         <div class="rblx-pill-dot"></div>
         <span>Roblox Identity Verification</span>
       </div>
-      <p style="font-size:12.5px;color:var(--gray);line-height:1.6;text-align:center;max-width:380px;">MiPass uses your Roblox account to verify your identity and retrieve your State Identification Number (SIN). No game data is ever accessed.</p>
+      <p style="font-size:12.5px;color:var(--gray);line-height:1.6;text-align:center;max-width:380px;">MiPASS uses your Roblox account to verify your identity and retrieve your State Identification Number (SIN). No game data is ever accessed.</p>
       <button class="roblox-btn" onclick="connectRoblox()">
         <div class="rblx-icon-box"></div>
         Link Roblox Account
@@ -706,8 +706,8 @@ button.btn-retry {
 
     <!-- Duplicate account warning -->
     <div class="alert warning" id="alertDuplicate">
-      <div class="alert-title">⚠️ MiPass Account Already Exists</div>
-      A MiPass account is already linked to this Roblox account (SIN). You cannot create a duplicate account. If you need help, please contact support.
+      <div class="alert-title">⚠️ MiPASS Account Already Exists</div>
+      A MiPASS account is already linked to this Roblox account (SIN). You cannot create a duplicate account. If you need help, please contact support.
     </div>
 
     <div class="form-actions">
@@ -722,7 +722,7 @@ button.btn-retry {
   <div class="step" id="step2">
     <div class="step-header">
       <h2>Step 2 — Identity Information</h2>
-      <p id="step2Desc">Provide your personal information to complete your MiPass account.</p>
+      <p id="step2Desc">Provide your personal information to complete your MiPASS account.</p>
     </div>
 
     <!-- Info banner: already registered in registry -->
@@ -734,7 +734,7 @@ button.btn-retry {
     <!-- Info banner: not in registry, must register -->
     <div class="alert info" id="alertNotRegistered">
       <div class="alert-title">ℹ️ Not Found in State Registry</div>
-      Your SIN was not found in the State Registry. Please fill in your information below. This will register you with the state and create your MiPass account.
+      Your SIN was not found in the State Registry. Please fill in your information below. This will register you with the state and create your MiPASS account.
     </div>
 
     <div class="section-divider"></div>
@@ -793,7 +793,7 @@ button.btn-retry {
   <div class="step" id="step3">
     <div class="step-header">
       <h2>Step 3 — Review &amp; Confirm</h2>
-      <p>Review the information below before creating your MiPass account.</p>
+      <p>Review the information below before creating your MiPASS account.</p>
     </div>
 
     <div class="review-group">
@@ -821,7 +821,7 @@ button.btn-retry {
     </div>
 
     <div class="declaration-box">
-      <p>By creating this MiPass account, I confirm that the information provided is accurate and that I am the rightful owner of the Roblox account linked above. I understand that this account is subject to state identity policies.</p>
+      <p>By creating this MiPASS account, I confirm that the information provided is accurate and that I am the rightful owner of the Roblox account linked above. I understand that this account is subject to state identity policies.</p>
       <div class="checkbox-row">
         <input type="checkbox" id="declareCheck" onchange="toggleCreate()">
         <label for="declareCheck">I confirm the above information is accurate and I agree to the terms.</label>
@@ -833,7 +833,7 @@ button.btn-retry {
     <div class="form-actions">
       <button class="btn-back" onclick="goStep(2)">‹ Back</button>
       <button class="btn-submit" id="createBtn" onclick="createAccount()" disabled>
-        <span id="createBtnText">Create MiPass Account</span>
+        <span id="createBtnText">Create MiPASS Account</span>
         <div class="mini-spin" id="createBtnSpin"></div>
       </button>
     </div>
@@ -846,7 +846,7 @@ button.btn-retry {
     <div class="success-wrap">
       <div class="success-icon-big">🎉</div>
       <h2>Account Created!</h2>
-      <p>Your MiPass account has been successfully created and linked to your State Identity Record.</p>
+      <p>Your MiPASS account has been successfully created and linked to your State Identity Record.</p>
       <div class="account-info-box">
         <div class="ai-label">Your SIN</div>
         <div class="ai-value" id="successSin">—</div>
@@ -854,13 +854,13 @@ button.btn-retry {
       <div class="next-steps">
         <h3>What's Next</h3>
         <ul>
-          <li>You can now log into MiPass with your Roblox account.</li>
+          <li>You can now log into MiPASS with your Roblox account.</li>
           <li>Your identity is linked to the State Registry and accessible to authorized state services.</li>
-          <li>Keep your account information up to date through your MiPass profile.</li>
+          <li>Keep your account information up to date through your MiPASS profile.</li>
         </ul>
       </div>
       <div style="margin-top:20px;">
-        <a href="/mipass/login/" style="display:inline-block;background:var(--mi-blue);color:white;font-size:13px;font-weight:700;padding:11px 24px;border-radius:7px;text-decoration:none;">Sign In to MiPass →</a>
+        <a href="/mipass/login/" style="display:inline-block;background:var(--mi-blue);color:white;font-size:13px;font-weight:700;padding:11px 24px;border-radius:7px;text-decoration:none;">Sign In to MiPASS →</a>
       </div>
     </div>
   </div>
@@ -928,7 +928,7 @@ button.btn-retry {
 ══════════════════════════════════════════ -->
 <script>
 // ─── ROBLOX OAUTH CONFIG ───────────────────────────────────
-const ROBLOX_CLIENT_ID = '6125371219815664523';
+const ROBLOX_CLIENT_ID = '8551910480130990194';
 const REDIRECT_URI     = window.location.origin + '/mipass/create/';
 const WORKER_URL       = 'https://roblox-oauth.takosull0.workers.dev/';
 
@@ -1068,7 +1068,7 @@ async function handleOAuthCallback() {
 
 // ─── STEP 1: POST-AUTH CHECKS ─────────────────────────────
 async function afterRobloxAuth(userId, username) {
-  document.getElementById('loadingMsg').textContent = 'Checking for existing MiPass account…';
+  document.getElementById('loadingMsg').textContent = 'Checking for existing MiPASS account…';
 
   await waitFor('_mipassReady', 'mipassReady');
   const { collection, getDocs, query, where } = window._mipassHelpers;
@@ -1216,7 +1216,7 @@ async function handleStep2Next() {
         lastName:    ln,
         fullName:    buildFullName(fn, mn, ln),
         dateOfBirth: dob,
-        // Fields the SOS page creates that may be blank for MiPass registration
+        // Fields the SOS page creates that may be blank for MiPASS registration
         status:           'registered',
         citizenshipStatus: null,
         applicationNumber: null,
@@ -1287,7 +1287,7 @@ async function createAccount() {
     const q = query(collection(db, 'mipass'), where('sin', '==', String(robloxData.id)));
     const snap = await getDocs(q);
     if (!snap.empty) {
-      throw new Error('A MiPass account already exists for this SIN. Please sign in instead.');
+      throw new Error('A MiPASS account already exists for this SIN. Please sign in instead.');
     }
 
     // Generate UID for the document
@@ -1309,7 +1309,7 @@ async function createAccount() {
 
   } catch (err) {
     btn.disabled = false;
-    document.getElementById('createBtnText').textContent = 'Create MiPass Account';
+    document.getElementById('createBtnText').textContent = 'Create MiPASS Account';
     document.getElementById('createBtnSpin').style.display = 'none';
     btn.disabled = !document.getElementById('declareCheck').checked;
     errBox.textContent   = '⚠️ ' + (err.message || 'Account creation failed. Please try again.');
