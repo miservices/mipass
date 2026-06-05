@@ -22,6 +22,8 @@
   --red-border: #fca5a5;
   --gold-light: #fef9ec;
   --gold-border: #fcd34d;
+  --accent: #0070f3;
+  --accent-light: #e8f1ff;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
@@ -46,8 +48,7 @@ body::before {
   z-index: 0;
 }
 .card {
-  width: 100%;
-  max-width: 420px;
+  width: 100%; max-width: 420px;
   background: var(--white);
   border: 1px solid var(--border);
   border-radius: 12px;
@@ -56,273 +57,147 @@ body::before {
   z-index: 1;
   box-shadow: 0 18px 45px rgba(0,0,0,0.07);
 }
-.logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 8px;
-}
+.logo { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 8px; }
 .logo-box {
-  width: 36px; height: 36px;
-  background: var(--mi-blue);
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 800;
-  font-size: 13px;
-  transform: skew(-12deg);
-  border-radius: 4px;
+  width: 36px; height: 36px; background: var(--mi-blue); color: white;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: 13px; transform: skew(-12deg); border-radius: 4px;
 }
 .logo-box span { transform: skew(12deg); display: block; }
-.logo-title {
-  font-size: 22px;
-  font-weight: 900;
-  color: var(--mi-blue);
-  transform: skew(-5deg);
-  letter-spacing: -0.5px;
-}
-.sub {
-  text-align: center;
-  font-size: 12px;
-  color: var(--gray);
-  margin-bottom: 28px;
-}
+.logo-title { font-size: 22px; font-weight: 900; color: var(--mi-blue); transform: skew(-5deg); letter-spacing: -0.5px; }
+.sub { text-align: center; font-size: 12px; color: var(--gray); margin-bottom: 28px; }
 
 /* REQUESTER BADGE */
 .requester-badge {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: #f4f7fb;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 11px 14px;
-  margin-bottom: 22px;
-  font-size: 12px;
-  color: var(--gray);
+  display: flex; align-items: center; gap: 10px;
+  background: #f4f7fb; border: 1px solid var(--border);
+  border-radius: 8px; padding: 11px 14px; margin-bottom: 22px;
+  font-size: 12px; color: var(--gray);
 }
-.requester-icon {
-  font-size: 1.3rem;
-  flex-shrink: 0;
-}
+.requester-icon { font-size: 1.3rem; flex-shrink: 0; }
 .requester-badge strong { color: var(--dark); font-size: 12.5px; display: block; }
 
-/* CONNECT */
-.connect-wrap {
+/* METHOD TABS */
+.method-tabs {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 14px;
-  padding: 4px 0 8px;
+  background: #f1f5f9;
+  border-radius: 8px;
+  padding: 4px;
+  gap: 4px;
+  margin-bottom: 22px;
 }
-.rblx-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  background: #111827;
-  color: #e5e7eb;
-  border-radius: 20px;
-  padding: 5px 14px;
-  font-size: 11.5px;
-  font-weight: 700;
+.method-tab {
+  flex: 1; padding: 9px 12px; border: none; background: transparent;
+  border-radius: 6px; font-family: 'DM Sans', sans-serif;
+  font-size: 12.5px; font-weight: 700; color: var(--gray);
+  cursor: pointer; transition: all 0.15s; display: flex; align-items: center; justify-content: center; gap: 7px;
 }
-.rblx-dot {
-  width: 7px; height: 7px;
-  border-radius: 50%;
-  background: #4ade80;
-  animation: pulse 1.8s ease-in-out infinite;
-}
-@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.85)} }
-.connect-wrap p {
-  font-size: 12.5px;
-  color: var(--gray);
-  text-align: center;
-  line-height: 1.6;
-  max-width: 320px;
-}
+.method-tab.active { background: var(--white); color: var(--mi-blue); box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+.method-tab:hover:not(.active) { color: var(--dark); }
+.tab-icon { width: 16px; height: 16px; flex-shrink: 0; }
+.rblx-tab-icon { background: var(--dark); clip-path: polygon(50% 0%,100% 50%,50% 100%,0% 50%); border-radius: 2px; }
+
+/* CONNECT PANEL */
+.connect-panel { display: flex; flex-direction: column; align-items: center; gap: 14px; padding: 4px 0 8px; }
+.rblx-pill { display: inline-flex; align-items: center; gap: 7px; background: #111827; color: #e5e7eb; border-radius: 20px; padding: 5px 14px; font-size: 11.5px; font-weight: 700; }
+.rblx-dot { width: 7px; height: 7px; border-radius: 50%; background: #4ade80; animation: pulse 1.8s ease-in-out infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.85)} }
+.connect-panel p { font-size: 12.5px; color: var(--gray); text-align: center; line-height: 1.6; max-width: 320px; }
+
 button.roblox-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 9px;
-  background: #111827;
-  color: white;
-  border: none;
-  border-radius: 7px;
-  padding: 12px 24px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 13.5px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background 0.15s, transform 0.1s;
-  width: 100%;
+  display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+  background: #111827; color: white; border: none; border-radius: 7px;
+  padding: 12px 24px; font-family: 'DM Sans', sans-serif; font-size: 13.5px;
+  font-weight: 700; cursor: pointer; transition: background 0.15s, transform 0.1s; width: 100%;
 }
 button.roblox-btn:hover { background: #1f2937; transform: translateY(-1px); }
-.rblx-icon {
-  width: 14px; height: 14px;
-  background: white;
-  transform: rotate(45deg);
-  border-radius: 2px;
-  flex-shrink: 0;
+.rblx-diamond { width: 14px; height: 14px; background: white; transform: rotate(45deg); border-radius: 2px; flex-shrink: 0; }
+
+/* GOOGLE BUTTON */
+button.google-btn {
+  width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px;
+  background: white; color: var(--dark); border: 1.5px solid var(--border);
+  border-radius: 8px; padding: 12px 20px; font-family: 'DM Sans', sans-serif;
+  font-size: 13.5px; font-weight: 700; cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, box-shadow 0.15s;
 }
-.create-link {
-  font-size: 12px;
-  color: var(--gray);
-  text-align: center;
+button.google-btn:hover { background: #f8fafc; border-color: #9ca3af; box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
+button.google-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.google-icon { width: 20px; height: 20px; flex-shrink: 0; }
+
+/* EMAIL FORM */
+.auth-divider { display: flex; align-items: center; gap: 12px; margin: 16px 0; color: var(--gray); font-size: 12px; font-weight: 600; }
+.auth-divider::before, .auth-divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.email-panel { display: flex; flex-direction: column; gap: 12px; }
+.field { display: flex; flex-direction: column; gap: 5px; }
+.field label { font-size: 12.5px; font-weight: 700; color: var(--dark); }
+.field input {
+  height: 42px; border: 1.5px solid var(--border); border-radius: 7px;
+  padding: 0 12px; font-family: 'DM Sans', sans-serif; font-size: 13.5px;
+  color: var(--dark); background: var(--white);
+  transition: border-color 0.15s, box-shadow 0.15s; outline: none;
 }
+.field input:focus { border-color: var(--mi-blue); box-shadow: 0 0 0 3px rgba(0,39,76,0.09); }
+.field input.error { border-color: var(--red); }
+.field .err-msg { font-size: 11px; color: var(--red); display: none; }
+.field input.error ~ .err-msg { display: block; }
+button.email-signin-btn {
+  width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px;
+  background: var(--mi-blue); color: white; border: none; border-radius: 7px;
+  padding: 12px 20px; font-family: 'DM Sans', sans-serif; font-size: 13.5px;
+  font-weight: 700; cursor: pointer; transition: background 0.15s; margin-top: 2px;
+}
+button.email-signin-btn:hover:not(:disabled) { background: var(--mi-blue-dark); }
+button.email-signin-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.mini-spin { width: 14px; height: 14px; border: 2px solid rgba(255,255,255,0.35); border-top-color: white; border-radius: 50%; animation: spin 0.7s linear infinite; display: none; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.forgot-link { font-size: 11.5px; color: var(--accent); font-weight: 600; text-align: right; cursor: pointer; text-decoration: underline; }
+
+.create-link { font-size: 12px; color: var(--gray); text-align: center; margin-top: 4px; }
 .create-link a { color: var(--mi-blue); font-weight: 700; text-decoration: none; }
 .create-link a:hover { text-decoration: underline; }
 
 /* LOADING */
-.state-loading {
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  padding: 24px 0;
-  text-align: center;
-}
-.spinner {
-  width: 30px; height: 30px;
-  border: 3px solid #e5e7eb;
-  border-top-color: var(--mi-blue);
-  border-radius: 50%;
-  animation: spin 0.7s linear infinite;
-}
-@keyframes spin { to { transform: rotate(360deg); } }
+.state-loading { display: none; flex-direction: column; align-items: center; gap: 12px; padding: 24px 0; text-align: center; }
+.spinner { width: 30px; height: 30px; border: 3px solid #e5e7eb; border-top-color: var(--mi-blue); border-radius: 50%; animation: spin 0.7s linear infinite; }
 .state-loading p { font-size: 13px; color: var(--gray); }
 
 /* VERIFIED */
-.state-verified {
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  padding: 8px 0;
-  text-align: center;
-}
-.verified-card {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: #f8fafc;
-  border: 1.5px solid #e5e7eb;
-  border-radius: 9px;
-  padding: 14px 16px;
-}
+.state-verified { display: none; flex-direction: column; align-items: center; gap: 12px; padding: 8px 0; text-align: center; }
+.verified-card { width: 100%; display: flex; align-items: center; justify-content: space-between; background: #f8fafc; border: 1.5px solid #e5e7eb; border-radius: 9px; padding: 14px 16px; }
 .verified-left { display: flex; align-items: center; gap: 12px; }
-.verified-icon {
-  width: 36px; height: 36px;
-  background: #111827;
-  border-radius: 8px;
-  display: flex; align-items: center; justify-content: center;
-}
+.rblx-avatar { width: 40px; height: 40px; border-radius: 8px; overflow: hidden; flex-shrink: 0; background: #111827; display: flex; align-items: center; justify-content: center; }
+.rblx-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.rblx-avatar-fallback { width: 16px; height: 16px; background: white; transform: rotate(45deg); border-radius: 2px; }
+.google-avatar { width: 40px; height: 40px; border-radius: 8px; overflow: hidden; flex-shrink: 0; background: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 18px; }
 .verified-name { font-size: 14px; font-weight: 800; color: var(--dark); }
-.verified-sin  { font-size: 11px; color: var(--gray); font-family: monospace; }
-.verified-badge {
-  display: inline-flex; align-items: center; gap: 4px;
-  background: var(--green-light);
-  border: 1px solid var(--green-border);
-  border-radius: 12px;
-  padding: 3px 10px;
-  font-size: 10.5px; font-weight: 800; color: var(--green);
-}
+.verified-pin  { font-size: 11px; color: var(--gray); font-family: monospace; }
+.verified-badge { display: inline-flex; align-items: center; gap: 4px; background: var(--green-light); border: 1px solid var(--green-border); border-radius: 12px; padding: 3px 10px; font-size: 10.5px; font-weight: 800; color: var(--green); }
 .verified-badge::before { content: '●'; font-size: 7px; }
 .not-you { font-size: 11.5px; color: var(--gray); cursor: pointer; text-decoration: underline; }
 
 /* REDIRECT */
-.redirect-wrap {
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  padding: 20px 0 8px;
-  text-align: center;
-}
+.redirect-wrap { display: none; flex-direction: column; align-items: center; gap: 10px; padding: 20px 0 8px; text-align: center; width: 100%; }
 .redirect-wrap .site-name { font-size: 13px; font-weight: 700; color: var(--dark); }
 .redirect-wrap p { font-size: 12px; color: var(--gray); }
-.redirect-bar {
-  width: 100%;
-  height: 4px;
-  background: #e5e7eb;
-  border-radius: 2px;
-  overflow: hidden;
-  margin-top: 4px;
-}
-.redirect-fill {
-  height: 100%;
-  background: var(--mi-blue);
-  border-radius: 2px;
-  width: 0%;
-  transition: width 2.5s linear;
-}
+.redirect-bar { width: 100%; height: 4px; background: #e5e7eb; border-radius: 2px; overflow: hidden; margin-top: 4px; }
+.redirect-fill { height: 100%; background: var(--mi-blue); border-radius: 2px; width: 0%; transition: width 2.5s linear; }
 
 /* ERROR */
-.state-error {
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  padding: 16px;
-  background: var(--red-light);
-  border: 1px solid var(--red-border);
-  border-radius: 8px;
-  text-align: center;
-}
+.state-error { display: none; flex-direction: column; align-items: center; gap: 10px; padding: 16px; background: var(--red-light); border: 1px solid var(--red-border); border-radius: 8px; text-align: center; }
 .state-error p { font-size: 12.5px; color: var(--red); line-height: 1.5; }
-button.btn-retry {
-  background: var(--mi-blue);
-  color: white;
-  border: none;
-  padding: 9px 18px;
-  border-radius: 7px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 12.5px;
-  font-weight: 700;
-  cursor: pointer;
-  width: auto;
-}
+button.btn-retry { background: var(--mi-blue); color: white; border: none; padding: 9px 18px; border-radius: 7px; font-family: 'DM Sans', sans-serif; font-size: 12.5px; font-weight: 700; cursor: pointer; width: auto; }
 
 /* NO ACCOUNT */
-.no-account-wrap {
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  padding: 16px;
-  background: var(--gold-light);
-  border: 1px solid var(--gold-border);
-  border-radius: 8px;
-  text-align: center;
-}
+.no-account-wrap { display: none; flex-direction: column; align-items: center; gap: 10px; padding: 16px; background: var(--gold-light); border: 1px solid var(--gold-border); border-radius: 8px; text-align: center; }
 .no-account-wrap p { font-size: 12.5px; color: #92400e; line-height: 1.5; }
 .no-account-wrap .na-title { font-weight: 800; font-size: 13px; color: #78350f; margin-bottom: 2px; }
-button.btn-create {
-  background: var(--mi-blue);
-  color: white;
-  border: none;
-  padding: 9px 18px;
-  border-radius: 7px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 12.5px;
-  font-weight: 700;
-  cursor: pointer;
-  width: auto;
-}
+button.btn-create { background: var(--mi-blue); color: white; border: none; padding: 9px 18px; border-radius: 7px; font-family: 'DM Sans', sans-serif; font-size: 12.5px; font-weight: 700; cursor: pointer; width: auto; }
 
-.footer-note {
-  margin-top: 20px;
-  font-size: 11px;
-  background: #eef4ff;
-  border-left: 3px solid var(--mi-blue);
-  padding: 9px 12px;
-  color: #1f2937;
-  line-height: 1.45;
-  border-radius: 0 6px 6px 0;
-}
+.alert { border-radius: 8px; padding: 12px 14px; font-size: 12.5px; line-height: 1.55; margin-top: 4px; }
+.alert.error { background: var(--red-light); border: 1px solid var(--red-border); color: var(--red); }
+
+.footer-note { margin-top: 20px; font-size: 11px; background: #eef4ff; border-left: 3px solid var(--mi-blue); padding: 9px 12px; color: #1f2937; line-height: 1.45; border-radius: 0 6px 6px 0; }
 </style>
 </head>
 <body>
@@ -334,7 +209,6 @@ button.btn-create {
   </div>
   <div class="sub">State Identity Authentication System</div>
 
-  <!-- Shows which site is requesting login -->
   <div class="requester-badge" id="requesterBadge" style="display:none;">
     <div class="requester-icon">🏛️</div>
     <div>
@@ -343,18 +217,68 @@ button.btn-create {
     </div>
   </div>
 
-  <!-- CONNECT -->
-  <div id="stateConnect" class="connect-wrap">
-    <div class="rblx-pill">
-      <div class="rblx-dot"></div>
-      Roblox Identity Verification
+  <!-- ═══ SIGN-IN PANEL ═══ -->
+  <div id="stateConnect">
+
+    <!-- METHOD TABS -->
+    <div class="method-tabs">
+      <button class="method-tab active" id="tabRoblox" onclick="switchTab('roblox')">
+        <div class="tab-icon rblx-tab-icon"></div>
+        Roblox
+      </button>
+      <button class="method-tab" id="tabGoogle" onclick="switchTab('google')">
+        <svg class="tab-icon google-icon" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        Google
+      </button>
+      <button class="method-tab" id="tabEmail" onclick="switchTab('email')">
+        <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        Email
+      </button>
     </div>
-    <p>Sign in with your Roblox account to verify your identity and authorize access.</p>
-    <button class="roblox-btn" onclick="doConnect()">
-      <div class="rblx-icon"></div>
-      Sign In with Roblox
-    </button>
-    <div class="create-link">
+
+    <!-- ROBLOX PANEL -->
+    <div class="connect-panel" id="panelRoblox">
+      <div class="rblx-pill"><div class="rblx-dot"></div>Roblox Identity Verification</div>
+      <p>Sign in with your Roblox account to verify your identity and authorize access.</p>
+      <button class="roblox-btn" onclick="doConnectRoblox()">
+        <div class="rblx-diamond"></div>
+        Sign In with Roblox
+      </button>
+    </div>
+
+    <!-- GOOGLE PANEL -->
+    <div class="connect-panel" id="panelGoogle" style="display:none;">
+      <p>Sign in with the Google account linked to your MiPASS account.</p>
+      <button class="google-btn" id="googleSignInBtn" onclick="doSignInGoogle()">
+        <svg class="google-icon" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        Continue with Google
+      </button>
+      <div class="alert error" id="googleError" style="display:none;width:100%;"></div>
+    </div>
+
+    <!-- EMAIL PANEL -->
+    <div class="connect-panel" id="panelEmail" style="display:none;">
+      <div class="email-panel" style="width:100%;">
+        <div class="field">
+          <label for="emailInput">Email Address</label>
+          <input type="email" id="emailInput" placeholder="you@example.com">
+          <span class="err-msg">Enter a valid email address.</span>
+        </div>
+        <div class="field">
+          <label for="passwordInput">Password</label>
+          <input type="password" id="passwordInput" placeholder="Your password">
+          <span class="err-msg">Password is required.</span>
+        </div>
+        <div style="text-align:right;"><span class="forgot-link" onclick="doForgotPassword()">Forgot password?</span></div>
+        <button class="email-signin-btn" id="emailSignInBtn" onclick="doSignInEmail()">
+          <span id="emailSignInText">Sign In</span>
+          <div class="mini-spin" id="emailSignInSpin"></div>
+        </button>
+        <div class="alert error" id="emailError" style="display:none;"></div>
+      </div>
+    </div>
+
+    <div class="create-link" style="margin-top:16px;">
       Don't have a MiPASS account? <a id="createLink" href="https://miservices.github.io/mipass/create/">Create one</a>
     </div>
   </div>
@@ -365,23 +289,20 @@ button.btn-create {
     <p id="loadingMsg">Verifying your identity…</p>
   </div>
 
-  <!-- VERIFIED — confirm before redirecting -->
+  <!-- VERIFIED -->
   <div id="stateVerified" class="state-verified">
     <div class="verified-card">
       <div class="verified-left">
-        <div class="verified-icon">
-          <div class="rblx-icon" style="width:18px;height:18px;"></div>
-        </div>
+        <div id="verifiedAvatarWrap"></div>
         <div>
           <div class="verified-name" id="vUsername"></div>
-          <div class="verified-sin"  id="vSin"></div>
+          <div class="verified-pin"  id="vPin"></div>
         </div>
       </div>
       <div class="verified-badge">Verified</div>
     </div>
     <span class="not-you" onclick="doReset()">Not you? Sign in with a different account</span>
-    <!-- Redirect countdown -->
-    <div id="redirectWrap" class="redirect-wrap" style="width:100%;">
+    <div id="redirectWrap" class="redirect-wrap">
       <div class="site-name" id="redirectSiteName"></div>
       <p>Redirecting you back…</p>
       <div class="redirect-bar"><div class="redirect-fill" id="redirectFill"></div></div>
@@ -394,7 +315,7 @@ button.btn-create {
   <!-- NO ACCOUNT -->
   <div id="stateNoAccount" class="no-account-wrap">
     <div class="na-title">⚠️ No MiPASS Account Found</div>
-    <p>No MiPASS account is linked to this Roblox account. You'll need to create one first.</p>
+    <p>No MiPASS account is linked to this sign-in method. You'll need to create one first.</p>
     <button class="btn-create" id="goCreateBtn" onclick="goCreate()">Create MiPASS Account</button>
   </div>
 
@@ -405,16 +326,18 @@ button.btn-create {
   </div>
 
   <div class="footer-note">
-    🔒 MiPASS only shares your name, date of birth, and SIN with authorized state services.
+    🔒 MiPASS only shares your name, date of birth, and PIN with authorized state services.
   </div>
 
 </div>
 
-<!-- MiPASS Firebase -->
+<!-- MiPASS Firebase + Auth -->
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-app.js";
   import { getFirestore, collection, getDocs, query, where }
     from "https://www.gstatic.com/firebasejs/11.0.0/firebase-firestore.js";
+  import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, sendPasswordResetEmail }
+    from "https://www.gstatic.com/firebasejs/11.0.0/firebase-auth.js";
 
   const mipassConfig = {
     apiKey: "AIzaSyCWJBf_xxGj8JWbfwzzEHmtdzMmiLTGTas",
@@ -425,9 +348,13 @@ button.btn-create {
     appId: "1:326401354685:web:dee9e48de3975a72d600d4"
   };
   const app = initializeApp(mipassConfig, "mipass");
-  const db  = getFirestore(app);
-  window._mipassDb = db;
-  window._mipassQ  = { collection, getDocs, query, where };
+  window._mipassDb   = getFirestore(app);
+  window._mipassAuth = getAuth(app);
+  window._mipassQ    = { collection, getDocs, query, where };
+  window._GoogleAuthProvider = GoogleAuthProvider;
+  window._signInWithPopup    = signInWithPopup;
+  window._signInWithEmailAndPassword = signInWithEmailAndPassword;
+  window._sendPasswordResetEmail     = sendPasswordResetEmail;
   window._mipassReady = true;
   document.dispatchEvent(new Event('mipassReady'));
 </script>
@@ -440,8 +367,9 @@ const SS_STATE         = 'mipass_login_state';
 const SS_REDIRECT      = 'mipass_login_redirect';
 const SS_RNAME         = 'mipass_login_rname';
 
-let userData = null; // { sin, name, dateOfBirth, robloxUsername }
+let userData       = null;
 let redirectTarget = null;
+let activeTab      = 'roblox';
 
 function waitFor(flag, ev) {
   if (window[flag]) return Promise.resolve();
@@ -451,24 +379,25 @@ function waitFor(flag, ev) {
 function ui(state) {
   ['stateConnect','stateLoading','stateVerified','stateNoAccount','stateError'].forEach(id => {
     const el = document.getElementById(id);
-    const show = id === state;
-    el.style.display = show ? 'flex' : 'none';
+    el.style.display = (id === state) ? (id === 'stateConnect' ? 'block' : 'flex') : 'none';
   });
 }
 
-function showError(msg) {
-  document.getElementById('errorMsg').textContent = msg;
-  ui('stateError');
+function showError(msg) { document.getElementById('errorMsg').textContent = msg; ui('stateError'); }
+function doReset() { userData = null; ui('stateConnect'); }
+
+// ── TABS ──
+function switchTab(tab) {
+  activeTab = tab;
+  ['roblox','google','email'].forEach(t => {
+    document.getElementById('tab' + t.charAt(0).toUpperCase() + t.slice(1)).classList.toggle('active', t === tab);
+    document.getElementById('panel' + t.charAt(0).toUpperCase() + t.slice(1)).style.display = t === tab ? 'flex' : 'none';
+  });
 }
 
-function doReset() {
-  userData = null;
-  ui('stateConnect');
-}
-
-// ── On load: read redirect_uri + site name from query params ─
+// ── INIT ──
 function init() {
-  const params = new URLSearchParams(window.location.search);
+  const params   = new URLSearchParams(window.location.search);
   const redirect = params.get('redirect_uri');
   const siteName = params.get('site_name') || 'The requesting service';
 
@@ -480,110 +409,197 @@ function init() {
   redirectTarget = sessionStorage.getItem(SS_REDIRECT);
   const rName    = sessionStorage.getItem(SS_RNAME) || siteName;
 
-  // Show requester badge
   if (redirectTarget) {
     document.getElementById('requesterBadge').style.display = 'flex';
     document.getElementById('requesterName').textContent = rName;
     document.getElementById('redirectSiteName').textContent = rName;
-    // Make "create account" pass redirect through
     const createBase = 'https://miservices.github.io/mipass/create/';
     document.getElementById('createLink').href = createBase +
-      '?redirect_uri=' + encodeURIComponent(redirectTarget) +
-      '&site_name=' + encodeURIComponent(rName);
+      '?redirect_uri=' + encodeURIComponent(redirectTarget) + '&site_name=' + encodeURIComponent(rName);
   }
 
-  // Handle OAuth callback
   const code  = params.get('code');
   const state = params.get('state');
   if (code) {
     window.history.replaceState({}, '', window.location.pathname);
-    handleCallback(code, state);
+    handleRobloxCallback(code, state);
   } else {
     ui('stateConnect');
   }
 }
 
-function doConnect() {
+// ── ROBLOX FLOW ──
+function doConnectRoblox() {
   const state = crypto.randomUUID();
   sessionStorage.setItem(SS_STATE, state);
-  const p = new URLSearchParams({
-    client_id:     ROBLOX_CLIENT_ID,
-    redirect_uri:  REDIRECT_URI,
-    response_type: 'Code',
-    scope:         'openid profile',
-    state,
-  });
+  const p = new URLSearchParams({ client_id: ROBLOX_CLIENT_ID, redirect_uri: REDIRECT_URI, response_type: 'Code', scope: 'openid profile', state });
   window.location.href = 'https://authorize.roblox.com/?' + p.toString();
 }
 
-async function handleCallback(code, stateParam) {
+async function handleRobloxCallback(code, stateParam) {
   const saved = sessionStorage.getItem(SS_STATE);
   sessionStorage.removeItem(SS_STATE);
-
   ui('stateLoading');
   document.getElementById('loadingMsg').textContent = 'Verifying your identity…';
-
-  if (stateParam !== saved) {
-    showError('Security validation failed. Please try again.');
-    return;
-  }
-
+  if (stateParam !== saved) { showError('Security validation failed. Please try again.'); return; }
   try {
-    const res  = await fetch(WORKER_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ code }),
-    });
+    const res  = await fetch(WORKER_URL, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ code }) });
     const data = await res.json();
     if (!data.userId || !data.username) throw new Error(data.error || 'Could not retrieve account details.');
-
     document.getElementById('loadingMsg').textContent = 'Looking up your MiPASS account…';
-
     await waitFor('_mipassReady', 'mipassReady');
     const { collection, getDocs, query, where } = window._mipassQ;
-    const db = window._mipassDb;
-
-    const q    = query(collection(db, 'mipass'), where('sin', '==', String(data.userId)));
-    const snap = await getDocs(q);
-
-    if (snap.empty) {
-      // No account — show create prompt
-      ui('stateNoAccount');
-      return;
-    }
-
-    // Found account
+    const snap = await getDocs(query(collection(window._mipassDb, 'mipass'), where('pin', '==', String(data.userId))));
+    if (snap.empty) { ui('stateNoAccount'); return; }
     const doc = snap.docs[0].data();
-    userData = {
-      sin:            String(data.userId),
-      name:           doc.name,
-      dateOfBirth:    doc.dateOfBirth,
-      robloxUsername: data.username,
-    };
-
+    userData = { pin: String(data.userId), name: doc.name, dateOfBirth: doc.dateOfBirth, robloxUsername: data.username };
+    // Build verified card with avatar
     document.getElementById('vUsername').textContent = data.username;
-    document.getElementById('vSin').textContent      = 'SIN: ' + data.userId;
-    ui('stateVerified');
+    document.getElementById('vPin').textContent      = 'PIN: ' + data.userId;
+    document.getElementById('verifiedAvatarWrap').innerHTML = '<div class="rblx-avatar"><div class="rblx-avatar-fallback"></div></div>';
+    loadRobloxAvatar(data.userId);
+    showVerified();
+  } catch(err) { showError('Sign in failed: ' + err.message); }
+}
 
-    // Auto-redirect after short delay if there's a target
-    if (redirectTarget) {
-      document.getElementById('redirectWrap').style.display = 'flex';
-      document.getElementById('confirmBtn').style.display = 'none';
-      setTimeout(() => {
-        document.getElementById('redirectFill').style.width = '100%';
-      }, 50);
-      setTimeout(() => doRedirect(), 2600);
+async function loadRobloxAvatar(userId) {
+  try {
+    const res = await fetch('https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=' + userId + '&size=48x48&format=Png');
+    const data = await res.json();
+    const url = data?.data?.[0]?.imageUrl;
+    if (url) {
+      document.getElementById('verifiedAvatarWrap').innerHTML =
+        '<div class="rblx-avatar"><img src="' + url + '" alt="Avatar" onerror="this.parentElement.innerHTML=\'<div class=\\\'rblx-avatar-fallback\\\'></div>\'"></div>';
     }
+  } catch(e) {}
+}
 
-  } catch (err) {
-    showError('Sign in failed: ' + err.message);
+// ── GOOGLE FLOW ──
+async function doSignInGoogle() {
+  const btn = document.getElementById('googleSignInBtn');
+  btn.disabled = true;
+  document.getElementById('googleError').style.display = 'none';
+  await waitFor('_mipassReady', 'mipassReady');
+  try {
+    const result = await window._signInWithPopup(window._mipassAuth, new window._GoogleAuthProvider());
+    const user   = result.user;
+    ui('stateLoading');
+    document.getElementById('loadingMsg').textContent = 'Looking up your MiPASS account…';
+    // Look up by Firebase UID (document ID) or email
+    const { collection, getDocs, query, where } = window._mipassQ;
+    // Try by uid first
+    const { getDoc, doc } = await (async () => {
+      const mod = await import('https://www.gstatic.com/firebasejs/11.0.0/firebase-firestore.js');
+      return mod;
+    })();
+    const docSnap = await getDoc(doc(window._mipassDb, 'mipass', user.uid));
+    if (!docSnap.exists()) {
+      // fallback: query by email
+      const snap = await getDocs(query(collection(window._mipassDb, 'mipass'), where('email', '==', user.email)));
+      if (snap.empty) { ui('stateNoAccount'); return; }
+      const d = snap.docs[0].data();
+      userData = { pin: d.pin, name: d.name, dateOfBirth: d.dateOfBirth, robloxUsername: d.robloxUsername || '' };
+    } else {
+      const d = docSnap.data();
+      userData = { pin: d.pin, name: d.name, dateOfBirth: d.dateOfBirth, robloxUsername: d.robloxUsername || '' };
+    }
+    document.getElementById('vUsername').textContent = userData.name;
+    document.getElementById('vPin').textContent      = 'PIN: ' + userData.pin;
+    document.getElementById('verifiedAvatarWrap').innerHTML = '<div class="google-avatar">🔵</div>';
+    showVerified();
+  } catch(err) {
+    ui('stateConnect');
+    const e = document.getElementById('googleError');
+    e.textContent = '⚠️ ' + (err.message || 'Google sign-in failed.');
+    e.style.display = 'block';
+    btn.disabled = false;
+  }
+}
+
+// ── EMAIL FLOW ──
+async function doSignInEmail() {
+  const emailEl = document.getElementById('emailInput'), passEl = document.getElementById('passwordInput');
+  let valid = true;
+  emailEl.classList.remove('error'); passEl.classList.remove('error');
+  document.getElementById('emailError').style.display = 'none';
+  if (!emailEl.value.trim() || !/\S+@\S+\.\S+/.test(emailEl.value)) { emailEl.classList.add('error'); valid = false; }
+  if (!passEl.value) { passEl.classList.add('error'); valid = false; }
+  if (!valid) return;
+  const btn = document.getElementById('emailSignInBtn');
+  btn.disabled = true;
+  document.getElementById('emailSignInText').textContent = 'Signing in…';
+  document.getElementById('emailSignInSpin').style.display = 'inline-block';
+  await waitFor('_mipassReady', 'mipassReady');
+  try {
+    const cred = await window._signInWithEmailAndPassword(window._mipassAuth, emailEl.value.trim(), passEl.value);
+    const user = cred.user;
+    ui('stateLoading');
+    document.getElementById('loadingMsg').textContent = 'Looking up your MiPASS account…';
+    const { getDoc, doc } = await (async () => {
+      const mod = await import('https://www.gstatic.com/firebasejs/11.0.0/firebase-firestore.js');
+      return mod;
+    })();
+    const docSnap = await getDoc(doc(window._mipassDb, 'mipass', user.uid));
+    if (!docSnap.exists()) { ui('stateNoAccount'); return; }
+    const d = docSnap.data();
+    userData = { pin: d.pin, name: d.name, dateOfBirth: d.dateOfBirth, robloxUsername: d.robloxUsername || '' };
+    document.getElementById('vUsername').textContent = userData.name;
+    document.getElementById('vPin').textContent      = 'PIN: ' + userData.pin;
+    document.getElementById('verifiedAvatarWrap').innerHTML = '<div class="google-avatar">📧</div>';
+    showVerified();
+  } catch(err) {
+    ui('stateConnect');
+    const e = document.getElementById('emailError');
+    let msg = err.message || 'Sign-in failed.';
+    if (err.code === 'auth/wrong-password' || err.code === 'auth/user-not-found' || err.code === 'auth/invalid-credential') msg = 'Incorrect email or password.';
+    e.textContent = '⚠️ ' + msg; e.style.display = 'block';
+    btn.disabled = false;
+    document.getElementById('emailSignInText').textContent = 'Sign In';
+    document.getElementById('emailSignInSpin').style.display = 'none';
+  }
+}
+
+async function doForgotPassword() {
+  const emailEl = document.getElementById('emailInput');
+  const email   = emailEl.value.trim();
+  const errEl   = document.getElementById('emailError');
+  if (!email || !/\S+@\S+\.\S+/.test(email)) {
+    emailEl.classList.add('error');
+    errEl.textContent = '⚠️ Enter your email address above first.';
+    errEl.style.display = 'block';
+    return;
+  }
+  await waitFor('_mipassReady', 'mipassReady');
+  try {
+    await window._sendPasswordResetEmail(window._mipassAuth, email);
+    errEl.style.background = '#dcfce7'; errEl.style.borderColor = '#86efac'; errEl.style.color = '#15803d';
+    errEl.textContent = '✓ Password reset email sent. Check your inbox.';
+    errEl.style.display = 'block';
+  } catch(err) {
+    errEl.style.background = ''; errEl.style.borderColor = ''; errEl.style.color = '';
+    errEl.textContent = '⚠️ ' + (err.message || 'Could not send reset email.');
+    errEl.style.display = 'block';
+  }
+}
+
+// ── VERIFIED COMMON ──
+function showVerified() {
+  ui('stateVerified');
+  if (redirectTarget) {
+    document.getElementById('redirectWrap').style.display = 'flex';
+    document.getElementById('confirmBtn').style.display   = 'none';
+    setTimeout(() => { document.getElementById('redirectFill').style.width = '100%'; }, 50);
+    setTimeout(() => doRedirect(), 2600);
+  } else {
+    document.getElementById('redirectWrap').style.display = 'none';
+    document.getElementById('confirmBtn').style.display   = '';
   }
 }
 
 function doRedirect() {
   if (!redirectTarget || !userData) return;
   const url = new URL(redirectTarget);
-  url.searchParams.set('mipass_sin',  userData.sin);
+  url.searchParams.set('mipass_pin',  userData.pin);
   url.searchParams.set('mipass_name', userData.name);
   url.searchParams.set('mipass_dob',  userData.dateOfBirth);
   url.searchParams.set('mipass_user', userData.robloxUsername);
@@ -598,10 +614,14 @@ function goCreate() {
   window.location.href = url;
 }
 
-window.doConnect  = doConnect;
-window.doReset    = doReset;
-window.doRedirect = doRedirect;
-window.goCreate   = goCreate;
+window.doConnectRoblox  = doConnectRoblox;
+window.doSignInGoogle   = doSignInGoogle;
+window.doSignInEmail    = doSignInEmail;
+window.doForgotPassword = doForgotPassword;
+window.switchTab        = switchTab;
+window.doReset          = doReset;
+window.doRedirect       = doRedirect;
+window.goCreate         = goCreate;
 
 window.addEventListener('DOMContentLoaded', init);
 </script>
